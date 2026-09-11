@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digi+wo Math Hub</title>
+<link rel="stylesheet" href="css/styles-digittwo.css" />
+</head>
+<body>
+    <div id="app"></div>
+
+    <audio id="bg-music" loop>
+        <source src="assets/boba date.mp3" type="audio/mpeg">
+    </audio>
+
+    <div class="music-controls">
+        <button class="music-btn" onclick="toggleMusic()" id="music-toggle-btn">🔇</button>
+    </div>
+
+    <!--
+        Script load order (strict dependency chain):
+        1. i18n.js       — Indonesian translations + t()
+        2. constants.js  — static data: grades, game types, material content
+        3. store.js      — app state + localStorage (no passwords stored)
+        4. api.js        — all HTTP calls to backend
+        5. session.js    — game session flow, auth, report saving
+        6. game-match.js — card matching game engine
+        7. game-dino.js  — dino runner game engine
+        8. ui.js         — all rendering (HTML only, uses esc() for XSS protection)
+        9. main.js       — entry point, event binding, audio
+       10. home-override.js — enhanced home page layout (loaded last)
+    -->
+    <script src="js/i18n.js"></script>
+    <script src="js/constants.js"></script>
+    <script src="js/store.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/session.js"></script>
+    <script src="js/admin.js"></script>
+    <script src="js/game-match.js"></script>
+    <script src="js/game-dino.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/home-override.js"></script>
+</body>
+</html>
